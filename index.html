@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -403,6 +404,630 @@
     body.dark-mode .info-item i {
       background-color: rgba(37, 99, 235, 0.2);
     }
+
+    /* Skills Section */
+    #skills {
+      background-color: rgba(241, 245, 249, 0.7);
+      position: relative;
+    }
+
+    body.dark-mode #skills {
+      background-color: rgba(15, 23, 42, 0.7);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .skill-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    body.dark-mode .skill-card {
+      background-color: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill-card:hover::before {
+      opacity: 1;
+    }
+
+    .skill-card:hover * {
+      color: white;
+    }
+
+    .skill-icon {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      border-radius: 50%;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    body.dark-mode .skill-icon {
+      background-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .skill-card:hover .skill-icon {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .skill-icon i {
+      font-size: 2rem;
+    }
+
+    .skill-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      transition: var(--transition);
+    }
+
+    .skill-description {
+      color: var(--gray);
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    body.dark-mode .skill-description {
+      color: #94a3b8;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.dark-mode .project-card {
+      background-color: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode .project-card:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    body.dark-mode .project-title {
+      color: var(--light);
+    }
+
+    .project-description {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    body.dark-mode .project-description {
+      color: #94a3b8;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .project-tag {
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    body.dark-mode .project-tag {
+      background-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 15px;
+      margin-top: auto;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .project-link:hover {
+      color: var(--secondary);
+      transform: translateX(3px);
+    }
+
+    /* Contact Section */
+    #contact {
+      position: relative;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-icon {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      border-radius: 50%;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    body.dark-mode .contact-icon {
+      background-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .contact-info-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .contact-info-content p, .contact-info-content a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    body.dark-mode .contact-info-content p, 
+    body.dark-mode .contact-info-content a {
+      color: #94a3b8;
+    }
+
+    .contact-info-content a:hover {
+      color: var(--primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      border-radius: 50%;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    body.dark-mode .social-link {
+      background-color: rgba(37, 99, 235, 0.2);
+    }
+
+    .social-link:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .contact-form {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark-mode .contact-form {
+      background-color: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      transition: var(--transition);
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    body.dark-mode .form-control {
+      background-color: #0f172a;
+      border-color: #334155;
+      color: var(--light);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    .form-btn {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .form-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: var(--light);
+      padding: 60px 0 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+
+    .footer-intro h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .footer-intro p {
+      color: #94a3b8;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .footer-links h4, .footer-contact h4 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: var(--light);
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #94a3b8;
+      margin-bottom: 15px;
+    }
+
+    .footer-contact-item i {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copyright {
+      color: #94a3b8;
+    }
+
+    /* Scroll Top Button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 99;
+      border: none;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    #scrollTopBtn.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Media Queries */
+    @media (max-width: 991px) {
+      .about-content,
+      .contact-container,
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-image {
+        order: -1;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header .container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav ul {
+        justify-content: space-between;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+
+      section {
+        padding: 80px 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        clip-path: circle(0px at top right);
+        transition: 0.5s;
+        z-index: 99;
+      }
+
+      body.dark-mode nav {
+        background-color: rgba(15, 23, 42, 0.95);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      nav.active {
+        clip-path: circle(1000px at center);
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+      }
+
+      header .container {
+        flex-direction: row;
+      }
+
+      #menu-toggle {
+        display: block;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      .about-info {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 30px 20px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -442,360 +1067,3 @@
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
           <a href="Vinay-Sandula-Resume.pdf" download class="btn btn-outline">Download CV <i class="fas fa-download"></i></a>
-        </div>
-      </div>
-      <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-      </div>
-    </div>
-  </section>
-  <section id="about" class="fade-in">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>Hello! I'm Vinay Sandula, a passionate Power BI Developer with expertise in transforming complex data into actionable business insights. My journey in data visualization began with a fascination for how visual representation can unlock the hidden stories within numbers.</p>
-          <p>With over 5 years of experience in the business intelligence domain, I've worked with organizations across various industries, helping them leverage their data assets to drive strategic decisions. My approach combines analytical thinking with creative design principles to create dashboards that are both powerful and intuitive.</p>
-          <p>I thrive in collaborative environments where I can translate business requirements into technical solutions, and I'm constantly exploring new data visualization techniques and technologies to expand my expertise.</p>
-          <div class="about-info">
-            <div class="info-item">
-              <i class="fas fa-medal"></i>
-              <span>5+ Years Experience</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-briefcase"></i>
-              <span>50+ Projects</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-certificate"></i>
-              <span>Microsoft Certified</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-users"></i>
-              <span>Team Collaboration</span>
-            </div>
-          </div>
-        </div>
-        <div class="about-image">
-          <img src="/api/placeholder/500/500" alt="Vinay Sandula - Power BI Developer" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="fade-in">
-    <div class="container">
-      <h2 class="section-title">My Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-chart-bar"></i>
-          </div>
-          <h3 class="skill-name">Power BI Development</h3>
-          <p class="skill-description">Creating interactive dashboards, reports and visualizations using DAX, Power Query, and advanced Power BI features.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-database"></i>
-          </div>
-          <h3 class="skill-name">SQL &amp; Data Modeling</h3>
-          <p class="skill-description">Designing efficient data models and writing complex SQL queries to extract meaningful insights from databases.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3 class="skill-name">DAX Programming</h3>
-          <p class="skill-description">Developing sophisticated calculations and measures using Data Analysis Expressions for in-depth analytics.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-cloud"></i>
-          </div>
-          <h3 class="skill-name">Azure Services</h3>
-          <p class="skill-description">Implementing cloud-based BI solutions using Azure Data Factory, Synapse Analytics, and other Azure services.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-magic"></i>
-          </div>
-          <h3 class="skill-name">Data Transformation</h3>
-          <p class="skill-description">Cleansing, transforming, and shaping data using Power Query M language and ETL processes.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-paint-brush"></i>
-          </div>
-          <h3 class="skill-name">UI/UX for Dashboards</h3>
-          <p class="skill-description">Crafting visually appealing and user-friendly dashboard interfaces with focus on usability and accessibility.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-cogs"></i>
-          </div>
-          <h3 class="skill-name">Performance Optimization</h3>
-          <p class="skill-description">Enhancing dashboard performance through query optimization, data model refinement, and visual best practices.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-project-diagram"></i>
-          </div>
-          <h3 class="skill-name">Report Server Deployment</h3>
-          <p class="skill-description">Managing Power BI Report Server deployments, security, scheduling, and enterprise-level implementations.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="fade-in">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Retail Analytics Dashboard" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Retail Analytics Dashboard</h3>
-            <p class="project-description">A comprehensive sales performance monitoring system for a multinational retail chain, featuring regional comparisons, product category analysis, and inventory optimization insights.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">DAX</span>
-              <span class="project-tag">SQL</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Financial Performance Tracker" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Financial Performance Tracker</h3>
-            <p class="project-description">An executive dashboard providing real-time visibility into key financial metrics, budget variances, and forecasting models for a Fortune 500 company.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">Azure</span>
-              <span class="project-tag">DAX</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Supply Chain Visualization" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Supply Chain Visualization</h3>
-            <p class="project-description">An end-to-end supply chain monitoring solution featuring logistics tracking, warehouse optimization, and delivery performance analytics for a global manufacturing firm.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">Python</span>
-              <span class="project-tag">GIS</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="HR Analytics Platform" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">HR Analytics Platform</h3>
-            <p class="project-description">A human resources analytics solution providing insights on workforce demographics, talent acquisition metrics, employee engagement, and performance evaluation trends.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">R Integration</span>
-              <span class="project-tag">DAX</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Healthcare Metrics Dashboard" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Healthcare Metrics Dashboard</h3>
-            <p class="project-description">A HIPAA-compliant analytics solution for a healthcare provider network, featuring patient outcome tracking, resource utilization, and operational efficiency metrics.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">Azure</span>
-              <span class="project-tag">Secure Data</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Marketing Campaign Analyzer" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Marketing Campaign Analyzer</h3>
-            <p class="project-description">A multi-channel marketing performance dashboard integrating web analytics, social media engagement, email campaigns, and conversion metrics for data-driven marketing decisions.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">API Integration</span>
-              <span class="project-tag">DAX</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="fade-in">
-  <div class="container">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="contact-container">
-      <div class="contact-info">
-        <div class="contact-info-item">
-          <div class="contact-icon">
-            <i class="fas fa-map-marker-alt"></i>
-          </div>
-          <div class="contact-info-content">
-            <h4>Location</h4>
-            <p>San Francisco, California, USA</p>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="contact-info-content">
-            <h4>Email</h4>
-            <a href="mailto:contact@vinaysandula.com">contact@vinaysandula.com</a>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-icon">
-            <i class="fas fa-phone-alt"></i>
-          </div>
-          <div class="contact-info-content">
-            <h4>Phone</h4>
-            <a href="tel:+14155552671">+1 (415) 555-2671</a>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-icon">
-            <i class="fas fa-globe"></i>
-          </div>
-          <div class="contact-info-content">
-            <h4>Website</h4>
-            <a href="https://www.vinaysandula.com" target="_blank">www.vinaysandula.com</a>
-          </div>
-        </div>
-        <ul class="social-links">
-          <li>
-            <a href="#" class="social-link" title="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" title="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" title="Twitter">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" title="Medium">
-              <i class="fab fa-medium-m"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="contact-form">
-        <form id="contactForm" action="#" method="POST">
-          <div class="form-group">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <label for="subject" class="form-label">Subject</label>
-            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
-          </div>
-          <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="form-btn">
-            Send Message <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-intro">
-        <h3>Vinay Sandula</h3>
-        <p>Expert Power BI Developer crafting data visualization solutions that transform complex information into actionable business insights. Let's collaborate to bring your data to life.</p>
-        <ul class="social-links">
-          <li>
-            <a href="#" class="social-link" title="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" title="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" title="Twitter">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="social-link" title="Medium">
-              <i class="fab fa-medium-m"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#hero"><i class="fas fa-chevron-right"></i> Home</a></li>
-          <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
-          <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
-          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Vinay Sandula | All Rights Reserved</p>
-    </div>
-  </div>
-</footer>
-
-<!-- Optional: Include Font Awesome -->
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</body>
-</html>
-
