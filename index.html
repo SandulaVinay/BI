@@ -823,42 +823,60 @@
             <h3>Send a Message</h3>
             <p>Fill out the form below and I'll get back to you soon!</p>
           </div>
-          
-          <form id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <div class="input-icon">
-                  <i class="fas fa-user"></i>
-                </div>
-                <input type="text" id="name" name="name" placeholder="Your Name" class="form-control" required>
-              </div>
-              
-              <div class="form-group">
-                <div class="input-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <input type="email" id="email" name="email" placeholder="Your Email" class="form-control" required>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <div class="input-icon">
-                <i class="fas fa-tag"></i>
-              </div>
-              <input type="text" id="subject" name="subject" placeholder="Subject" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <div class="input-icon textarea-icon">
-                <i class="fas fa-comment-alt"></i>
-              </div>
-              <textarea id="message" name="message" rows="5" placeholder="Your Message" class="form-control" required></textarea>
-            </div>
-            
-            <button type="submit" class="form-btn">
-              <span>Send Message</span>
-              <div class="btn-icon">
-                <i class="fas fa-paper-plane"></i>
+          <form id="contactForm" action="https://formspree.io/f/xgvkoykk" method="POST">
+  <div class="form-row">
+    <div class="form-group">
+      <div class="input-icon">
+        <i class="fas fa-user"></i>
+      </div>
+      <input type="text" id="name" name="name" placeholder="Your Name" class="form-control" required>
+    </div>
+    
+    <div class="form-group">
+      <div class="input-icon">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <input type="email" id="email" name="email" placeholder="Your Email" class="form-control" required>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="input-icon">
+      <i class="fas fa-tag"></i>
+    </div>
+    <input type="text" id="subject" name="subject" placeholder="Subject" class="form-control" required>
+  </div>
+  
+  <div class="form-group">
+    <div class="input-icon textarea-icon">
+      <i class="fas fa-comment-alt"></i>
+    </div>
+    <textarea id="message" name="message" rows="5" placeholder="Your Message" class="form-control" required></textarea>
+  </div>
+  
+  <button type="submit" class="form-btn">
+    <span>Send Message</span>
+    <div class="btn-icon">
+      <i class="fas fa-paper-plane"></i>
+    </div>
+  </button>
+</form>
+
+<div id="form-messages" class="mt-4"></div>
+
+<!-- Optional: JavaScript to handle form submission with feedback -->
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    // We'll allow the default form submission to Formspree
+    // But we can add some visual feedback
+    const submitBtn = this.querySelector('.form-btn');
+    const formMessages = document.getElementById('form-messages');
+    
+    // Change button text to indicate submission
+    submitBtn.innerHTML = '<span>Sending...</span><div class="btn-icon"><i class="fas fa-spinner fa-spin"></i></div>';
+    submitBtn.disabled = true;
+  });
+</script>
               </div>
             </button>
           </form>
@@ -871,7 +889,7 @@
     </div>
   </div>
 </section>
-    /* Enhanced Contact Section Styles */
+ 
 #contact {
   position: relative;
   padding: 120px 0;
@@ -939,8 +957,6 @@ body.dark-mode .decoration-triangle {
   flex-direction: column;
   align-items: center;
 }
-
-/* Contact illustration */
 .contact-illustration {
   margin-bottom: -30px;
   z-index: 2;
@@ -970,7 +986,6 @@ body.dark-mode .decoration-triangle {
   font-size: 2rem;
 }
 
-/* Main contact container */
 .contact-container {
   width: 100%;
   max-width: 1000px;
@@ -987,7 +1002,6 @@ body.dark-mode .contact-container {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
-/* Contact info section */
 .contact-info {
   padding: 40px;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -1073,7 +1087,6 @@ body.dark-mode .contact-container {
   text-decoration: underline;
 }
 
-/* Social links */
 .social-section h4 {
   margin-bottom: 15px;
   font-size: 1.1rem;
