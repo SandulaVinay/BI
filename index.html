@@ -464,278 +464,427 @@
         <p class="hero-subtitle">I'm a <span class="typewriter-container"><span id="typewriter"></span><span class="typewriter-cursor"></span></span></p>
         <p class="hero-text">Fuelled by curiosity and driven by data, I specialize in transforming complexity into clarity. With a keen eye for design and a mindset wired for analysis, I craft dynamic dashboards that don't just inform—they inspire decisions.</p>
          <div class="hero-cta">
-<!-- Fix for contact form submission -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(this);
-        
-        fetch('https://formspree.io/f/xgvkoykk', {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-          return Promise.reject(response);
-        })
-        .then(data => {
-          // Success message
-          const formElements = contactForm.elements;
-          for (let i = 0; i < formElements.length; i++) {
-            formElements[i].disabled = false;
-          }
-          
-          // Clear the form
-          contactForm.reset();
-          
-          // Show success message
-          const successMessage = document.createElement('div');
-          successMessage.className = 'form-success-message';
-          successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Your message has been sent successfully!';
-          contactForm.appendChild(successMessage);
-          
-          // Remove success message after 5 seconds
-          setTimeout(() => {
-            successMessage.remove();
-          }, 5000);
-        })
-        .catch(error => {
-          console.error('Error submitting form:', error);
-          
-          // Show error message
-          const errorMessage = document.createElement('div');
-          errorMessage.className = 'form-error-message';
-          errorMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> There was an error sending your message. Please try again.';
-          contactForm.appendChild(errorMessage);
-          
-          // Remove error message after 5 seconds
-          setTimeout(() => {
-            errorMessage.remove();
-          }, 5000);
-        });
-      });
-    }
-  });
-</script>
+          <a href="#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+          <a href="Vinay-Sandula-Resume.pdf" download class="btn btn-outline">Download CV <i class="fas fa-download"></i></a>
+        </div>
+      </div>
+      <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+    </div>
+  </section>
 
-<!-- CSS fixes for all issues -->
-<style>
-  /* Make social links horizontal instead of vertical */
-  .social-links {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    padding: 0;
-    list-style: none;
-    margin-top: 20px;
-  }
-  
-  .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--primary-color);
-    transition: all 0.3s ease;
-  }
-  
-  .social-link:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-3px);
-  }
-  
-  /* Form success and error messages */
-  .form-success-message, .form-error-message {
-    padding: 12px 15px;
-    margin-top: 20px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 500;
-  }
-  
-  .form-success-message {
-    background-color: rgba(46, 204, 113, 0.15);
-    color: #2ecc71;
-    border-left: 4px solid #2ecc71;
-  }
-  
-  .form-error-message {
-    background-color: rgba(231, 76, 60, 0.15);
-    color: #e74c3c;
-    border-left: 4px solid #e74c3c;
-  }
-  
-  /* Center copyright text */
-  .copyright {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  /* Enhance Get In Touch section */
-  #contact {
-    background-color: var(--bg-lighter);
-    padding: 80px 0;
-  }
-  
-  .contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    background-color: var(--bg-color);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contact-info {
-    padding: 40px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-  }
-  
-  .contact-info-item {
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .contact-icon {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    font-size: 20px;
-  }
-  
-  .contact-info-content h4 {
-    margin: 0 0 5px;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  
-  .contact-info-content p, 
-  .contact-info-content a {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .contact-info-content a:hover {
-    color: white;
-    text-decoration: underline;
-  }
-  
-  .contact-form {
-    padding: 40px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--text-color);
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 12px 15px;
-    background-color: var(--bg-lighter);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    color: var(--text-color);
-    transition: all 0.3s ease;
-  }
-  
-  .form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2);
-    outline: none;
-  }
-  
-  .form-btn {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-  }
-  
-  .form-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
-  }
-  
-  /* Adjust footer layout */
-  .footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-  }
-  
-  @media (max-width: 768px) {
-    .contact-container,
-    .footer-content {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
+  <!-- Add JavaScript for typewriter effect -->
+  <script>
+    // Typewriter effect
+    document.addEventListener('DOMContentLoaded', function() {
+      const typewriterEl = document.getElementById('typewriter');
+      const roles = ['Power BI Developer', 'Data Analyst', 'Dashboard Designer', 'Business Intelligence Expert', 'BI Developer, SQL Developer, Python Developer'];
+      let roleIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typingDelay = 100;
+      let deleteDelay = 50;
+      let newTextDelay = 2000; // Delay between typed words
 
-<!-- Updated footer section without Medium link -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Find all social-links containers and update them
-    const socialLinksContainers = document.querySelectorAll('.social-links');
-    
-    socialLinksContainers.forEach(container => {
-      // Find and remove Medium link
-      const mediumLink = container.querySelector('a[href*="medium.com"]');
-      if (mediumLink) {
-        const parentLi = mediumLink.closest('li');
-        if (parentLi) {
-          parentLi.remove();
+      function type() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+          // Removing characters
+          typewriterEl.textContent = currentRole.substring(0, charIndex - 1);
+          charIndex--;
+          typingDelay = deleteDelay;
+        } else {
+          // Adding characters
+          typewriterEl.textContent = currentRole.substring(0, charIndex + 1);
+          charIndex++;
+          typingDelay = 100;
         }
+
+        // Logic for transition between typing and deleting
+        if (!isDeleting && charIndex === currentRole.length) {
+          // Complete word typed, pause before deleting
+          isDeleting = true;
+          typingDelay = newTextDelay;
+        } else if (isDeleting && charIndex === 0) {
+          // Word completely deleted, move to next word
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+
+        setTimeout(type, typingDelay);
       }
+
+      // Start the typewriter effect
+      setTimeout(type, newTextDelay);
     });
+  </script>
+</body>
+</html>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+          <a href="Vinay-Sandula-Resume.pdf" download class="btn btn-outline">Download CV <i class="fas fa-download"></i></a>
+        </div>
+      </div>
+      <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+    </div>
+  </section>
+<section id="about" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Hello! I'm Vinay Sandula, a passionate Power BI Developer with expertise in transforming complex data into actionable business insights. My journey in data visualization began with a fascination for how visual representation can unlock the hidden stories within numbers.</p>
+          <p>With over 3 years of experience in the business intelligence domain, I've worked with organizations across various industries, helping them leverage their data assets to drive strategic decisions. My approach combines analytical thinking with creative design principles to create dashboards that are both powerful and intuitive.</p>
+          <p>I thrive in collaborative environments where I can translate business requirements into technical solutions, and I'm constantly exploring new data visualization techniques and technologies to expand my expertise.</p>
+          <div class="about-info">
+            <div class="info-item">
+              <i class="fas fa-medal"></i>
+              <span>3+ Years Experience</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-briefcase"></i>
+              <span>10+ Projects</span>
+            </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-users"></i>
+              <span>Team Collaboration</span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3 class="skill-name">Power BI Development</h3>
+          <p class="skill-description">Creating interactive dashboards, reports and visualizations using DAX, Power Query, and advanced Power BI features.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="skill-name">SQL &amp; Data Modeling</h3>
+          <p class="skill-description">Designing efficient data models and writing complex SQL queries to extract meaningful insights from databases.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="skill-name">DAX Programming</h3>
+          <p class="skill-description">Developing sophisticated calculations and measures using Data Analysis Expressions for in-depth analytics.</p>
+        
     
-    // Update footer intro section content
-    const footerIntro = document.querySelector('.footer-intro');
-    if (footerIntro) {
-      const introContent = footerIntro.querySelector('p');
-      if (introContent) {
-        introContent.textContent = '';
-      }
-    }
-  });
-</script>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-magic"></i>
+          </div>
+          <h3 class="skill-name">Data Transformation</h3>
+          <p class="skill-description">Cleansing, transforming, and shaping data using Power Query M language and ETL processes.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="skill-name">UI/UX for Dashboards</h3>
+          <p class="skill-description">Crafting visually appealing and user-friendly dashboard interfaces with focus on usability and accessibility.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="skill-name">Performance Optimization</h3>
+          <p class="skill-description">Enhancing dashboard performance through query optimization, data model refinement, and visual best practices.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <h3 class="skill-name">Report Server Deployment</h3>
+          <p class="skill-description">Managing Power BI Report Server deployments, security, scheduling, and enterprise-level implementations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/api/placeholder/400/250" alt="Retail Analytics Dashboard" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Retail Analytics Dashboard</h3>
+            <p class="project-description">A comprehensive sales performance monitoring system for a multinational retail chain, featuring regional comparisons, product category analysis, and inventory optimization insights.</p>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">DAX</span>
+              <span class="project-tag">SQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/api/placeholder/400/250" alt="Financial Performance Tracker" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Financial Performance Tracker</h3>
+            <p class="project-description">An executive dashboard providing real-time visibility into key financial metrics, budget variances, and forecasting models for a Fortune 500 company.</p>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">Azure</span>
+              <span class="project-tag">DAX</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/api/placeholder/400/250" alt="Supply Chain Visualization" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Supply Chain Visualization</h3>
+            <p class="project-description">An end-to-end supply chain monitoring solution featuring logistics tracking, warehouse optimization, and delivery performance analytics for a global manufacturing firm.</p>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">GIS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/api/placeholder/400/250" alt="HR Analytics Platform" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">HR Analytics Platform</h3>
+            <p class="project-description">A human resources analytics solution providing insights on workforce demographics, talent acquisition metrics, employee engagement, and performance evaluation trends.</p>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">R Integration</span>
+              <span class="project-tag">DAX</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/api/placeholder/400/250" alt="Healthcare Metrics Dashboard" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Healthcare Metrics Dashboard</h3>
+            <p class="project-description">A HIPAA-compliant analytics solution for a healthcare provider network, featuring patient outcome tracking, resource utilization, and operational efficiency metrics.</p>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">Azure</span>
+              <span class="project-tag">Secure Data</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/api/placeholder/400/250" alt="Marketing Campaign Analyzer" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Marketing Campaign Analyzer</h3>
+            <p class="project-description">A multi-channel marketing performance dashboard integrating web analytics, social media engagement, email campaigns, and conversion metrics for data-driven marketing decisions.</p>
+            <div class="project-tags">
+              <span class="project-tag">Power BI</span>
+              <span class="project-tag">API Integration</span>
+              <span class="project-tag">DAX</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ <section id="contact" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-info-content">
+              <h4>Location</h4>
+              <p>Mumbai, India</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-info-content">
+              <h4>Email</h4>
+              <a href="mailto:sandulavinay@gmail.com">sandulavinay@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-info-content">
+              <h4>Phone</h4>
+              <a href="tel:+919849993991">+91 9849993991</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="contact-info-content">
+              <h4>Website</h4>
+              <a href="https://www.vinaysandula.com" target="_blank" rel="noopener noreferrer">www.vinaysandula.com</a>
+            </div>
+          </div>
+          <ul class="social-links">
+            <li>
+              <a href="https://www.linkedin.com/in/vinay-sandula" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/svinay88" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/svinay88" class="social-link" title="Twitter" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://medium.com/@vinay-sandula" class="social-link" title="Medium" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-medium-m"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm" action="https://formspree.io/f/xgvkoykk" method="POST">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="form-btn">
+              Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-intro">
+          <h3>Vinay Sandula</h3>
+          <p>Expert Power BI Developer crafting data visualization solutions that transform complex information into actionable business insights. Let's collaborate to bring your data to life.</p>
+          <ul class="social-links">
+            <li>
+              <a href="https://www.linkedin.com/in/vinay-sandula" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/svinay88" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/svinay88" class="social-link" title="Twitter" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://medium.com/@vinay-sandula" class="social-link" title="Medium" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-medium-m"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+            <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="#portfolio"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+            <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Power BI Development</li>
+            <li><i class="fas fa-check"></i> Data Visualization</li>
+            <li><i class="fas fa-check"></i> Dashboard Creation</li>
+            <li><i class="fas fa-check"></i> Data Analysis</li>
+            <li><i class="fas fa-check"></i> Business Intelligence</li>
+            <li><i class="fas fa-check"></i> Data Model Design</li>
+            <li><i class="fas fa-check"></i> Python</li>
+            <li><i class="fas fa-check"></i> SQL</li>          
+            <li><i class="fas fa-check"></i> Data Model Design</li>
+            <li><i class="fas fa-check"></i> Open for freelancing</li>
+      </div>
+      <div class="copyright">
+        <p>&copy; <span id="current-year">2025</span> Vinay Sandula. All Rights Reserved.</p>
+        <script>
+          document.getElementById('current-year').textContent = new Date().getFullYear();
+        </script>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script src="js/main.js"></script>
