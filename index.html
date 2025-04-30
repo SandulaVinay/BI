@@ -457,13 +457,73 @@
       </nav>
     </div>
   </header>
-
   <section id="hero">
     <div class="container">
       <div class="hero-content">
         <h1 class="hero-title">Transforming Data into Visual Insights</h1>
         <p class="hero-subtitle">I'm a <span class="typewriter-container"><span id="typewriter"></span><span class="typewriter-cursor"></span></span></p>
         <p class="hero-text">Fuelled by curiosity and driven by data, I specialize in transforming complexity into clarity. With a keen eye for design and a mindset wired for analysis, I craft dynamic dashboards that don't just inform—they inspire decisions.</p>
+         <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
+          <a href="Vinay-Sandula-Resume.pdf" download class="btn btn-outline">Download CV <i class="fas fa-download"></i></a>
+        </div>
+      </div>
+      <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add JavaScript for typewriter effect -->
+  <script>
+    // Typewriter effect
+    document.addEventListener('DOMContentLoaded', function() {
+      const typewriterEl = document.getElementById('typewriter');
+      const roles = ['Power BI Developer', 'Data Analyst', 'Dashboard Designer', 'Business Intelligence Expert'];
+      let roleIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typingDelay = 100;
+      let deleteDelay = 50;
+      let newTextDelay = 2000; // Delay between typed words
+
+      function type() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+          // Removing characters
+          typewriterEl.textContent = currentRole.substring(0, charIndex - 1);
+          charIndex--;
+          typingDelay = deleteDelay;
+        } else {
+          // Adding characters
+          typewriterEl.textContent = currentRole.substring(0, charIndex + 1);
+          charIndex++;
+          typingDelay = 100;
+        }
+
+        // Logic for transition between typing and deleting
+        if (!isDeleting && charIndex === currentRole.length) {
+          // Complete word typed, pause before deleting
+          isDeleting = true;
+          typingDelay = newTextDelay;
+        } else if (isDeleting && charIndex === 0) {
+          // Word completely deleted, move to next word
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+
+        setTimeout(type, typingDelay);
+      }
+
+      // Start the typewriter effect
+      setTimeout(type, newTextDelay);
+    });
+  </script>
+</body>
+</html>
 
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
