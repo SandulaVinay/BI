@@ -184,19 +184,44 @@
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 5px;
+      line-height: 1.5;
+    }
+
+    .typewriter-container {
+      display: inline-flex;
+      position: relative;
+      align-items: center;
+      vertical-align: baseline;
     }
 
     #typewriter {
       color: var(--primary);
       font-weight: 600;
-      border-right: 3px solid var(--primary);
-      padding-right: 5px;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+    }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      background-color: var(--primary);
+      margin-left: 2px;
       animation: blink 1s step-end infinite;
+      height: 1.5em;
+      vertical-align: middle;
     }
 
     @keyframes blink {
       50% { border-color: transparent; }
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
     }
 
     .hero-text {
@@ -437,8 +462,9 @@
     <div class="container">
       <div class="hero-content">
         <h1 class="hero-title">Transforming Data into Visual Insights</h1>
-        <p class="hero-subtitle">I'm a <span id="typewriter"></span></p>
+        <p class="hero-subtitle">I'm a <span class="typewriter-container"><span id="typewriter"></span><span class="typewriter-cursor"></span></span></p>
         <p class="hero-text">Fuelled by curiosity and driven by data, I specialize in transforming complexity into clarity. With a keen eye for design and a mindset wired for analysis, I craft dynamic dashboards that don't just inform—they inspire decisions.</p>
+
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
           <a href="Vinay-Sandula-Resume.pdf" download class="btn btn-outline">Download CV <i class="fas fa-download"></i></a>
