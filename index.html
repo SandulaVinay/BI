@@ -1,953 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vinay Sandula | Power BI Developer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="Vinay Sandula — Data Analyst & BI Engineer specializing in Power BI, SQL, Python and AI-powered analytics." />
+  <title>Vinay Sandula — Data Analyst & BI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #8b5cf6;
-      --dark: #1e1e2f;
-      --light: #f8fafc;
-      --gray: #64748b;
-      --transition: all 0.3s ease;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--light);
-      color: #333;
-      position: relative;
-      overflow-x: hidden;
-      transition: var(--transition);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(219, 234, 254, 0.8), rgba(199, 210, 254, 0.8));
-      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-      z-index: -1;
-    }
-
-    body.dark-mode {
-      background-color: #0f172a;
-      color: var(--light);
-    }
-
-    body.dark-mode::before {
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(30, 41, 80, 0.8));
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    /* Header Styles */
-    header {
-      padding: 20px 0;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 100;
-      transition: var(--transition);
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    body.dark-mode header {
-      background-color: rgba(15, 23, 42, 0.95);
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      transition: var(--transition);
-      padding: 8px 0;
-      position: relative;
-    }
-
-    body.dark-mode nav a {
-      color: var(--light);
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      transition: var(--transition);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    #theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-      color: var(--dark);
-      transition: var(--transition);
-    }
-
-    body.dark-mode #theme-toggle {
-      color: var(--light);
-    }
-
-    #menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--dark);
-    }
-
-    body.dark-mode #menu-toggle {
-      color: var(--light);
-    }
-
-    /* Hero Section */
-    #hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 600px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-title {
-      font-size: 3rem;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      line-height: 1.5;
-    }
-
-    .typewriter-container {
-      display: inline-flex;
-      position: relative;
-      align-items: center;
-      vertical-align: baseline;
-    }
-
-    #typewriter {
-      color: var(--primary);
-      font-weight: 600;
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      margin: 0;
-      letter-spacing: 0.05em;
-      line-height: 1.5;
-    }
-
-    .typewriter-cursor {
-      display: inline-block;
-      width: 3px;
-      background-color: var(--primary);
-      margin-left: 2px;
-      animation: blink 1s step-end infinite;
-      height: 1.5em;
-      vertical-align: middle;
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    .hero-text {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: var(--gray);
-      margin-bottom: 2rem;
-    }
-
-    body.dark-mode .hero-text {
-      color: #94a3b8;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 20px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      color: white;
-      border: none;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    body.dark-mode .btn-outline {
-      color: var(--light);
-      border-color: var(--light);
-    }
-
-    .btn-outline:hover {
-      background-color: var(--primary);
-      color: white;
-      transform: translateY(-3px);
-    }
-
-    .floating-shapes {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .shape {
-      position: absolute;
-      background: linear-gradient(45deg, var(--primary-dark), var(--secondary));
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      opacity: 0.1;
-      filter: blur(40px);
-      animation: float 10s infinite ease-in-out;
-    }
-
-    .shape:nth-child(1) {
-      width: 300px;
-      height: 300px;
-      top: 20%;
-      right: 10%;
-      animation-delay: 0s;
-    }
-
-    .shape:nth-child(2) {
-      width: 200px;
-      height: 200px;
-      top: 60%;
-      right: 30%;
-      animation-delay: -3s;
-    }
-
-    .shape:nth-child(3) {
-      width: 150px;
-      height: 150px;
-      top: 30%;
-      right: 40%;
-      animation-delay: -6s;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      25% { transform: translate(-20px, 20px) rotate(5deg); }
-      50% { transform: translate(10px, -15px) rotate(-5deg); }
-      75% { transform: translate(-15px, -25px) rotate(8deg); }
-    }
-
-    /* About Section */
-    section {
-      padding: 100px 0;
-      scroll-margin-top: 80px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-      position: relative;
-      font-size: 2.2rem;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 70px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      margin: 15px auto 0;
-      border-radius: 2px;
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about-image {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-image img {
-      width: 100%;
-      border-radius: 12px;
-      transition: var(--transition);
-    }
-
-    .about-image::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: 10px;
-      bottom: 10px;
-      border: 3px solid var(--primary);
-      border-radius: 12px;
-      z-index: -1;
-    }
-
-    .about-text {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .about-text p {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: var(--gray);
-    }
-
-    body.dark-mode .about-text p {
-      color: #94a3b8;
-    }
-
-    .about-info {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-
-    .info-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .info-item i {
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgba(37, 99, 235, 0.1);
-      color: var(--primary);
-      border-radius: 50%;
-    }
-
-    body.dark-mode .info-item i {
-      background-color: rgba(37, 99, 235, 0.2);
-    }
-  </style>
 </head>
 <body>
-  <button id="scrollTopBtn" title="Go to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+  <div class="noise" aria-hidden="true"></div>
 
-  <header>
-    <div class="container">
-      <h1>Vinay Sandula</h1>
-      <button id="menu-toggle">
-        <i class="fas fa-bars"></i>
+  <header class="site-header" id="top">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Vinay Sandula home">
+        <span class="brand-mark">VS</span>
+        <span>Vinay Sandula</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span>
       </button>
-      <nav>
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li>
-            <button id="theme-toggle" title="Toggle dark mode">
-              <i class="fas fa-moon"></i>
-            </button>
-          </li>
-        </ul>
+      <nav class="nav" id="nav">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Stack</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-social" href="https://www.linkedin.com/in/sandulavinay/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
       </nav>
     </div>
   </header>
-  <section id="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">Transforming Data into Visual Insights</h1>
-        <p class="hero-subtitle">I'm a <span class="typewriter-container"><span id="typewriter"></span><span class="typewriter-cursor"></span></span></p>
-        <p class="hero-text">Fuelled by curiosity and driven by data, I specialize in transforming complexity into clarity. With a keen eye for design and a mindset wired for analysis, I craft dynamic dashboards that don't just inform—they inspire decisions.</p>
-         <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
-          <a href="Vinay-Sandula-Resume.pdf" download class="btn btn-outline">Download CV <i class="fas fa-download"></i></a>
+
+  <main>
+    <section class="hero section-pad">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse"></span> Open to building better analytics</div>
+          <h1>I turn complex data into <span>decisions people can act on.</span></h1>
+          <p class="hero-lede">Data Analyst &amp; BI Engineer with 4 years of experience across Power BI, SQL and Python — building executive dashboards, scalable data models, automation and AI-assisted analytics.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">Explore my work <span>↓</span></a>
+            <a class="btn btn-ghost" href="Vinay-Sandula-Resume.pdf" target="_blank" rel="noreferrer">View résumé <span>↗</span></a>
+          </div>
+          <div class="hero-links">
+            <a href="mailto:vinaysandula08@gmail.com">vinaysandula08@gmail.com</a>
+            <span>Hyderabad, India</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay" aria-label="Abstract BI dashboard illustration">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <div class="dashboard-card main-card">
+            <div class="card-top"><span>EXECUTIVE SIGNALS</span><span class="live-dot">LIVE</span></div>
+            <div class="mini-kpis">
+              <div><small>ACTIVE USERS</small><strong>84.6K</strong><em>+18.4%</em></div>
+              <div><small>PLACEMENT</small><strong>72.8%</strong><em>+9.2%</em></div>
+            </div>
+            <div class="chart">
+              <span class="chart-line"></span>
+              <i style="--h:34%"></i><i style="--h:48%"></i><i style="--h:43%"></i><i style="--h:63%"></i><i style="--h:58%"></i><i style="--h:79%"></i><i style="--h:91%"></i>
+            </div>
+            <div class="chart-labels"><span>JAN</span><span>MAR</span><span>MAY</span><span>JUL</span></div>
+          </div>
+          <div class="float-card float-one"><span class="icon">◈</span><div><small>DAX ENGINE</small><b>170+ measures</b></div></div>
+          <div class="float-card float-two"><span class="icon">⌁</span><div><small>DATA SCALE</small><b>Crore-scale</b></div></div>
+          <div class="hero-grid-bg"></div>
         </div>
       </div>
-      <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+      <div class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section class="proof section-pad-sm">
+      <div class="container proof-grid">
+        <div><strong>4</strong><span>years in BI &amp; analytics</span></div>
+        <div><strong>15+</strong><span>relational tables in an executive model</span></div>
+        <div><strong>170+</strong><span>DAX measures in production analytics</span></div>
+        <div><strong>85%</strong><span>reduction in manual security checks</span></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Add JavaScript for typewriter effect -->
-  <script>
-    // Typewriter effect
-    document.addEventListener('DOMContentLoaded', function() {
-      const typewriterEl = document.getElementById('typewriter');
-      const roles = ['Power BI Developer', 'Data Analyst', 'Dashboard Designer', 'Business Intelligence Expert', 'BI Developer', 'SQL Developer', 'Python Developer'];
-      let roleIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-      let typingDelay = 100;
-      let deleteDelay = 50;
-      let newTextDelay = 2000; // Delay between typed words
+    <section id="work" class="section-pad">
+      <div class="container">
+        <div class="section-head reveal"><span class="section-kicker">01 / SELECTED WORK</span><h2>Projects built around real outcomes.</h2><p>Not just dashboards — systems that connect data, decisions and action.</p></div>
+        <div class="project-grid">
+          <article class="project-card featured reveal">
+            <div class="project-visual rag-visual"><div class="terminal"><span>POWER BI AI COPILOT</span><b>Ask → Retrieve → Explain → Act</b><div class="terminal-row"><i></i><i></i><i></i><i></i><i></i></div><div class="terminal-answer">“Explain why this KPI changed last month.”<br><strong>→ Context retrieved from your BI knowledge base.</strong></div></div></div>
+            <div class="project-body"><div class="project-meta"><span>01</span><span>AI / RAG / POWER BI</span></div><h3>Power BI AI Copilot</h3><p>A working RAG-based analytics assistant that connects natural-language questions with Power BI context, retrieval and AI-generated explanations.</p><div class="tags"><span>RAG</span><span>Python</span><span>LLM</span><span>Power BI</span><span>Retrieval</span></div><div class="project-links"><a class="text-link" href="https://powerbi-ai-copilot.onrender.com/" target="_blank" rel="noreferrer">Live app ↗</a><a class="text-link muted" href="https://github.com/SandulaVinay/powerbi-ai-copilot" target="_blank" rel="noreferrer">Source ↗</a></div></div>
+          </article>
 
-      function type() {
-        const currentRole = roles[roleIndex];
-        
-        if (isDeleting) {
-          // Removing characters
-          typewriterEl.textContent = currentRole.substring(0, charIndex - 1);
-          charIndex--;
-          typingDelay = deleteDelay;
-        } else {
-          // Adding characters
-          typewriterEl.textContent = currentRole.substring(0, charIndex + 1);
-          charIndex++;
-          typingDelay = 100;
-        }
+          <article class="project-card reveal">
+            <div class="project-visual data-visual"><div class="bars"><i style="--h:44%"></i><i style="--h:61%"></i><i style="--h:52%"></i><i style="--h:76%"></i><i style="--h:88%"></i><i style="--h:69%"></i></div><div class="data-chip">15+ TABLES</div></div>
+            <div class="project-body"><div class="project-meta"><span>02</span><span>RNIT.AI / GOVERNANCE</span></div><h3>Naipunyam Analytics</h3><p>Executive decision-support analytics covering student, college, jobs, industry, training, placement, opportunity and skill metrics.</p><div class="tags"><span>Power BI</span><span>SQL</span><span>Python</span><span>MCP</span></div></div>
+          </article>
 
-        // Logic for transition between typing and deleting
-        if (!isDeleting && charIndex === currentRole.length) {
-          // Complete word typed, pause before deleting
-          isDeleting = true;
-          typingDelay = newTextDelay;
-        } else if (isDeleting && charIndex === 0) {
-          // Word completely deleted, move to next word
-          isDeleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-        }
+          <article class="project-card reveal">
+            <div class="project-visual security-visual"><div class="shield">✓</div><div class="signal signal-1"></div><div class="signal signal-2"></div><div class="security-label">SECURITY MONITOR</div></div>
+            <div class="project-body"><div class="project-meta"><span>03</span><span>ADITYA BIRLA CAPITAL</span></div><h3>SQL Security Monitor</h3><p>Centralized monitoring across MSSQL, MySQL, DB2 and Oracle with automated Power Automate alerts for security deviations.</p><div class="tags"><span>SQL</span><span>SSIS</span><span>Node.js</span><span>Power Automate</span></div></div>
+          </article>
 
-        setTimeout(type, typingDelay);
-      }
+          <article class="project-card reveal">
+            <div class="project-visual docs-visual"><div class="folder">⌂</div><div class="doc-lines"><i></i><i></i><i></i><i></i></div><div class="access-chip">RLS · RBAC</div></div>
+            <div class="project-body"><div class="project-meta"><span>04</span><span>ADITYA BIRLA CAPITAL</span></div><h3>ITOPS 360 — Site Documentation</h3><p>Centralized site documentation with structured file management, role-based access and Power BI row-level security.</p><div class="tags"><span>Power BI</span><span>SQL</span><span>Node.js</span><span>RLS</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      // Start the typewriter effect
-      setTimeout(type, newTextDelay);
-    });
-  </script>
+    <section id="experience" class="section-pad section-dark">
+      <div class="container">
+        <div class="section-head reveal"><span class="section-kicker">02 / EXPERIENCE</span><h2>Four years of turning data into working products.</h2></div>
+        <div class="timeline">
+          <article class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-date">09/2025 — PRESENT</div><div class="timeline-content"><h3>Software Developer · RNIT.AI</h3><p>Architected a unified Power BI executive dashboard across 15+ tables and 170+ DAX measures. Delivered high-performance analytics for crore-scale government datasets, including model optimization, custom visuals and MCP-assisted troubleshooting.</p></div></article>
+          <article class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-date">04/2024 — 09/2025</div><div class="timeline-content"><h3>Software Developer · Clover Infotech</h3><p>Built SQL security dashboards across MSSQL, MySQL, DB2 and Oracle; automated alerts with Power Automate and DAX; and centralized OS/database monitoring using SSIS and Node.js.</p></div></article>
+          <article class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-date">06/2022 — 03/2024</div><div class="timeline-content"><h3>Software Developer · Rithya Builders &amp; Developers</h3><p>Developed real-time financial and investor dashboards, automated GST segregation and financial-period tracking, and supported BI delivery from data modeling through adoption.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section-pad">
+      <div class="container">
+        <div class="section-head reveal"><span class="section-kicker">03 / STACK</span><h2>A practical analytics stack.</h2><p>Focused on the tools that move a project from raw data to a decision-ready product.</p></div>
+        <div class="stack-grid">
+          <div class="stack-card reveal"><span class="stack-num">01</span><h3>BI &amp; Visualization</h3><p>Power BI Desktop &amp; Service · DAX · Power Query · Report Server · Custom visuals · Dashboard UX</p></div>
+          <div class="stack-card reveal"><span class="stack-num">02</span><h3>Data &amp; Engineering</h3><p>SQL Server · MySQL · Oracle · DB2 · Data modeling · ETL / SSIS · Performance tuning · Data integrity</p></div>
+          <div class="stack-card reveal"><span class="stack-num">03</span><h3>Automation &amp; Apps</h3><p>Python · Node.js · Power Automate · SMTP alerts · API integrations · Excel exports</p></div>
+          <div class="stack-card reveal"><span class="stack-num">04</span><h3>AI &amp; Modern Analytics</h3><p>RAG · LLM applications · MCP · Retrieval workflows · AI-assisted BI troubleshooting</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-pad about-section">
+      <div class="container about-grid">
+        <div class="section-head reveal"><span class="section-kicker">04 / ABOUT</span><h2>Analytics should feel simple — even when the data isn't.</h2></div>
+        <div class="about-copy reveal"><p>I’m Vinay, a Data Analyst &amp; BI Engineer based in Hyderabad. My work sits at the intersection of business intelligence, engineering and product thinking.</p><p>I enjoy taking messy, high-volume data, finding the signal, and turning it into an experience that a business leader can understand in seconds.</p><div class="about-note"><span>Currently exploring</span><strong>RAG systems · AI for BI · scalable analytics architecture</strong></div></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-pad contact-section">
+      <div class="container contact-card reveal">
+        <div><span class="section-kicker">05 / LET'S CONNECT</span><h2>Have a data problem worth solving?</h2><p>I'm interested in BI, analytics engineering, Power BI, AI-for-data and product-focused opportunities.</p></div>
+        <div class="contact-actions"><a class="btn btn-primary" href="mailto:vinaysandula08@gmail.com">Start a conversation ↗</a><div class="social-row"><a href="https://www.linkedin.com/in/sandulavinay/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/SandulaVinay" target="_blank" rel="noreferrer">GitHub</a><a href="tel:+919849993991">+91 98499 93991</a></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><span>© <span id="year"></span> Vinay Sandula</span><span>Built with data, code &amp; curiosity.</span><a href="#top">Back to top ↑</a></div></footer>
+  <script src="script.js"></script>
 </body>
 </html>
-      </div>
-      <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-      </div>
-    </div>
-  </section>
-<section id="about" class="fade-in">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>Hello! I'm Vinay Sandula, a passionate Power BI Developer with expertise in transforming complex data into actionable business insights. My journey in data visualization began with a fascination for how visual representation can unlock the hidden stories within numbers.</p>
-          <p>With over 3 years of experience in the business intelligence domain, I've worked with organizations across various industries, helping them leverage their data assets to drive strategic decisions. My approach combines analytical thinking with creative design principles to create dashboards that are both powerful and intuitive.</p>
-          <p>I thrive in collaborative environments where I can translate business requirements into technical solutions, and I'm constantly exploring new data visualization techniques and technologies to expand my expertise.</p>
-          <div class="about-info">
-            <div class="info-item">
-              <i class="fas fa-medal"></i>
-              <span>3+ Years Experience</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-briefcase"></i>
-              <span>10+ Projects</span>
-            </div>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-users"></i>
-              <span>Team Collaboration</span>
-            </div>
-          </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="fade-in">
-    <div class="container">
-      <h2 class="section-title">My Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-chart-bar"></i>
-          </div>
-          <h3 class="skill-name">Power BI Development</h3>
-          <p class="skill-description">Creating interactive dashboards, reports and visualizations using DAX, Power Query, and advanced Power BI features.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-database"></i>
-          </div>
-          <h3 class="skill-name">SQL &amp; Data Modeling</h3>
-          <p class="skill-description">Designing efficient data models and writing complex SQL queries to extract meaningful insights from databases.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3 class="skill-name">DAX Programming</h3>
-          <p class="skill-description">Developing sophisticated calculations and measures using Data Analysis Expressions for in-depth analytics.</p>
-        
-    
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-magic"></i>
-          </div>
-          <h3 class="skill-name">Data Transformation</h3>
-          <p class="skill-description">Cleansing, transforming, and shaping data using Power Query M language and ETL processes.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-paint-brush"></i>
-          </div>
-          <h3 class="skill-name">UI/UX for Dashboards</h3>
-          <p class="skill-description">Crafting visually appealing and user-friendly dashboard interfaces with focus on usability and accessibility.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-cogs"></i>
-          </div>
-          <h3 class="skill-name">Performance Optimization</h3>
-          <p class="skill-description">Enhancing dashboard performance through query optimization, data model refinement, and visual best practices.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-project-diagram"></i>
-          </div>
-          <h3 class="skill-name">Report Server Deployment</h3>
-          <p class="skill-description">Managing Power BI Report Server deployments, security, scheduling, and enterprise-level implementations.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="fade-in">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Retail Analytics Dashboard" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Retail Analytics Dashboard</h3>
-            <p class="project-description">A comprehensive sales performance monitoring system for a multinational retail chain, featuring regional comparisons, product category analysis, and inventory optimization insights.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">DAX</span>
-              <span class="project-tag">SQL</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="https://app.powerbi.com/links/vGoRh1Y299?ctid=24fa3089-8e98-4c9f-960f-8a36a2a96bf6&pbi_source=linkShare">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Financial Performance Tracker" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Financial Performance Tracker</h3>
-            <p class="project-description">An executive dashboard providing real-time visibility into key financial metrics, budget variances, and forecasting models for a Fortune 500 company.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">Azure</span>
-              <span class="project-tag">DAX</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Supply Chain Visualization" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Supply Chain Visualization</h3>
-            <p class="project-description">An end-to-end supply chain monitoring solution featuring logistics tracking, warehouse optimization, and delivery performance analytics for a global manufacturing firm.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">Python</span>
-              <span class="project-tag">GIS</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="HR Analytics Platform" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">HR Analytics Platform</h3>
-            <p class="project-description">A human resources analytics solution providing insights on workforce demographics, talent acquisition metrics, employee engagement, and performance evaluation trends.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">R Integration</span>
-              <span class="project-tag">DAX</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Healthcare Metrics Dashboard" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Healthcare Metrics Dashboard</h3>
-            <p class="project-description">A HIPAA-compliant analytics solution for a healthcare provider network, featuring patient outcome tracking, resource utilization, and operational efficiency metrics.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">Azure</span>
-              <span class="project-tag">Secure Data</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/api/placeholder/400/250" alt="Marketing Campaign Analyzer" />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Marketing Campaign Analyzer</h3>
-            <p class="project-description">A multi-channel marketing performance dashboard integrating web analytics, social media engagement, email campaigns, and conversion metrics for data-driven marketing decisions.</p>
-            <div class="project-tags">
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">API Integration</span>
-              <span class="project-tag">DAX</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">Get In Touch</h2>
-    
-    <!-- Decorative elements for visual appeal -->
-    <div class="contact-decoration">
-      <div class="decoration-circle"></div>
-      <div class="decoration-square"></div>
-      <div class="decoration-triangle"></div>
-    </div>
-    
-    <div class="contact-wrapper">
-      <!-- Contact illustration -->
-      <div class="contact-illustration">
-        <div class="illustration-content">
-          <div class="illustration-circle"></div>
-          <div class="illustration-icon">
-            <i class="fas fa-comments"></i>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Contact container with enhanced design -->
-      <div class="contact-container">
-        <!-- Left side - Contact Info -->
-        <div class="contact-info">
-          <div class="info-header">
-            <div class="info-badge">Say Hello!</div>
-            <h3>Let's Connect</h3>
-            <p>Have a project in mind or want to discuss data visualization? I'd love to hear from you.</p>
-          </div>
-          
-          <div class="info-cards">
-            <div class="info-card">
-              <div class="info-card-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="info-card-content">
-                <h4>Email</h4>
-                <a href="mailto:sandulavinay@gmail.com">sandulavinay@gmail.com</a>
-              </div>
-            </div>
-            
-            <div class="info-card">
-              <div class="info-card-icon">
-                <i class="fas fa-phone-alt"></i>
-              </div>
-              <div class="info-card-content">
-                <h4>Phone</h4>
-                <p>+91 98399 93991</p>
-              </div>
-            </div>
-            
-            <div class="info-card">
-              <div class="info-card-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div class="info-card-content">
-                <h4>Location</h4>
-                <p>Andhra Pradesh, Tirupati, India</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="social-section">
-            <h4>Follow Me</h4>
-            <ul class="social-links">
-              <li>
-                <a href="https://www.linkedin.com/in/sandulavinay" class="social-link linkedin" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/SandulaVinay" class="social-link github" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github"></i>
-                </a>
-              </li>
-              <li>
-                <a href="https://x.com/svinay88" class="social-link twitter" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        
-        <!-- Right side - Contact Form -->
-        <div class="contact-form">
-          <div class="form-header">
-            <h3>Send a Message</h3>
-            <p>Fill out the form below and I'll get back to you soon!</p>
-          </div>
-
-        
-        
-        
-<form id="contactForm" action="https://formspree.io/f/xgvkoykk" method="POST">
-  <div class="form-row">
-    <div class="form-group">
-      <div class="input-icon">
-        <i class="fas fa-user"></i>
-      </div>
-      <input type="text" id="name" name="name" placeholder="Your Name" class="form-control" required>
-    </div>
-    
-    <div class="form-group">
-      <div class="input-icon">
-        <i class="fas fa-envelope"></i>
-      </div>
-      <input type="email" id="email" name="email" placeholder="Your Email" class="form-control" required>
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <div class="input-icon">
-      <i class="fas fa-tag"></i>
-    </div>
-    <input type="text" id="subject" name="subject" placeholder="Subject" class="form-control" required>
-  </div>
-  
-  <div class="form-group">
-    <div class="input-icon textarea-icon">
-      <i class="fas fa-comment-alt"></i>
-    </div>
-    <textarea id="message" name="message" rows="5" placeholder="Your Message" class="form-control" required></textarea>
-  </div>
-
-  <!-- Add a honeypot field to prevent spam -->
-  <input type="text" name="_gotcha" style="display:none">
-  
-  <button type="submit" class="form-btn" id="submitBtn">
-    <span>Send Message</span>
-    <div class="btn-icon">
-      <i class="fas fa-paper-plane"></i>
-    </div>
-  </button>
-</form>
-
-<div id="form-messages"></div>
-
-<script>
-  const form = document.getElementById('contactForm');
-  const formMessages = document.getElementById('form-messages');
-  const submitBtn = document.getElementById('submitBtn');
-  
-  // Form submit event
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-    
-    // Change button state
-    submitBtn.innerHTML = '<span>Sending...</span><div class="btn-icon"><i class="fas fa-spinner fa-spin"></i></div>';
-    submitBtn.disabled = true;
-    
-    // Get form data
-    const formData = new FormData(form);
-    
-    // Send form data to Formspree via AJAX
-    fetch('https://formspree.io/f/xgvkoykk', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Success message
-      formMessages.innerHTML = '<div class="form-success-message"><i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.</div>';
-      
-      // Reset the form
-      form.reset();
-      
-      // Reset button state
-      submitBtn.innerHTML = '<span>Send Message</span><div class="btn-icon"><i class="fas fa-paper-plane"></i></div>';
-      submitBtn.disabled = false;
-      
-      // Clear success message after 5 seconds
-      setTimeout(() => {
-        formMessages.innerHTML = '';
-      }, 5000);
-    })
-    .catch(error => {
-      // Error message
-      formMessages.innerHTML = '<div class="form-error-message"><i class="fas fa-exclamation-circle"></i> Oops! There was a problem sending your message. Please try again.</div>';
-      
-      // Reset button state
-      submitBtn.innerHTML = '<span>Send Message</span><div class="btn-icon"><i class="fas fa-paper-plane"></i></div>';
-      submitBtn.disabled = false;
-    });
-  });
-</script>      
-        </script>
-              </div>
-            </button>
-          </form>
-          
-          <div class="form-footer">
-            <p>I'll respond within 24-48 hours</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
- 
-
-
-
-          </ul>
-        </div>
-
-      </div>
-      <div class="copyright">
-        <p>&copy; <span id="current-year">2025</span> Vinay Sandula. All Rights Reserved.</p>
-        <script>
-          document.getElementById('current-year').textContent = new Date().getFullYear();
-        </script>
-      </div>
-    </div>
-  </footer>
-
-  <!-- JavaScript Files -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-  <script src="js/main.js"></script>
